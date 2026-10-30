@@ -1,0 +1,692 @@
+/* ==============================
+   RESET & VARIABLES
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --orange: #FF914D;
+    --yellow: #FFDE59;
+    --black: #111111;
+    --gray: #626262;
+    --light-gray: #EAE7E4;
+    --background: #FCFAF8;
+    --font: 'Manrope', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font);
+    background: var(--background);
+    color: var(--black);
+    overflow-x: hidden;
+}
+
+
+/* ==============================
+   MAIN LAYOUT
+============================== */
+
+.project {
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 43% 57%;
+    align-items: center;
+    padding: 65px 3.5%;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* ==============================
+   LEFT CONTENT
+============================== */
+
+.project-info {
+    position: relative;
+    z-index: 5;
+    max-width: 570px;
+    padding-right: 20px;
+}
+
+.project-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--orange);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 27px;
+}
+
+.label-line {
+    width: 82px;
+    height: 1px;
+    background: var(--orange);
+}
+
+.project-info h1 {
+    font-size: clamp(44px, 4.5vw, 65px);
+    line-height: 0.99;
+    letter-spacing: -3.5px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.project-info h2 {
+    font-size: clamp(22px, 2.3vw, 30px);
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: -1.2px;
+    margin-bottom: 22px;
+}
+
+.description {
+    max-width: 490px;
+    color: var(--gray);
+    font-size: 16px;
+    line-height: 1.65;
+    margin-bottom: 21px;
+}
+
+
+/* ==============================
+   PROJECT LINKS
+============================== */
+
+.project-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 26px;
+    max-width: 510px;
+}
+
+.link-card {
+    min-width: 0;
+    min-height: 64px;
+    padding: 10px 12px;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    text-decoration: none;
+    color: var(--black);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.link-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.07);
+}
+
+.figma-card {
+    background: #FFF0E9;
+}
+
+.website-card {
+    background: #FFF3D9;
+}
+
+.link-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-weight: 800;
+    font-size: 22px;
+}
+
+.figma-icon {
+    color: #F24E1E;
+    background: white;
+}
+
+.website-icon {
+    color: var(--orange);
+    background: white;
+}
+
+.link-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.link-text strong {
+    font-size: 12px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.link-text small {
+    color: #858585;
+    font-size: 11px;
+}
+
+.arrow {
+    margin-left: auto;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+
+/* ==============================
+   TECHNOLOGIES
+============================== */
+
+.technologies {
+    max-width: 510px;
+    border-top: 1px solid var(--light-gray);
+    padding-top: 17px;
+}
+
+.technologies h3 {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #929292;
+    font-weight: 800;
+    margin-bottom: 13px;
+}
+
+.technology-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.technology-list span {
+    padding: 8px 16px;
+    border-radius: 30px;
+    background: #FFF0E9;
+    color: #555;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+/* ==============================
+   RIGHT VISUAL AREA
+============================== */
+
+.project-visual {
+    width: 100%;
+    height: 630px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Background decoration */
+
+.background-circle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.circle-one {
+    width: 570px;
+    height: 570px;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 145, 77, 0.13),
+        rgba(255, 222, 89, 0.04)
+    );
+    top: -50px;
+    right: 4%;
+}
+
+.circle-two {
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 222, 89, 0.55);
+    top: 0;
+    left: 12%;
+}
+
+.background-dot {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    border-radius: 50%;
+    background: var(--orange);
+    bottom: 70px;
+    left: 18%;
+    opacity: 0.4;
+}
+
+
+/* ==============================
+   LAPTOP MOCKUP
+============================== */
+
+.laptop {
+    position: absolute;
+    width: 88%;
+    max-width: 720px;
+    top: 55px;
+    left: 1%;
+    z-index: 2;
+    transform: perspective(1400px) rotateY(-4deg) rotateZ(1deg);
+}
+
+.laptop-screen {
+    position: relative;
+    width: 100%;
+    height: 440px;
+    background: #090909;
+    border: 7px solid #171717;
+    border-bottom: 11px solid #222;
+    border-radius: 20px 20px 8px 8px;
+    padding: 12px 10px 8px;
+    box-shadow:
+        0 18px 35px rgba(0, 0, 0, 0.22),
+        inset 0 0 0 1px #555;
+}
+
+.laptop-screen::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 5px;
+    background: #333;
+    border-radius: 50%;
+    z-index: 5;
+}
+
+.screen-content {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: white;
+    border-radius: 3px;
+}
+
+.screen-content iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    background: white;
+}
+
+
+/* Laptop base */
+
+.laptop-base {
+    width: 110%;
+    height: 22px;
+    margin-left: -5%;
+    background: linear-gradient(
+        to bottom,
+        #d7d7d7,
+        #777,
+        #b8b8b8
+    );
+    border-radius: 3px 3px 40px 40px;
+    position: relative;
+    box-shadow: 0 13px 18px rgba(0, 0, 0, 0.15);
+}
+
+.laptop-notch {
+    position: absolute;
+    width: 17%;
+    height: 5px;
+    background: #888;
+    top: 0;
+    left: 41.5%;
+    border-radius: 0 0 8px 8px;
+}
+
+
+/* ==============================
+   PHONE MOCKUP
+============================== */
+
+.phone {
+    position: absolute;
+    width: 160px;
+    height: 350px;
+    right: -1%;
+    bottom: 25px;
+    z-index: 4;
+    background: #151515;
+    border: 5px solid #222;
+    border-radius: 28px;
+    padding: 9px 5px;
+    box-shadow: 0 17px 35px rgba(0, 0, 0, 0.25);
+    transform: rotate(4deg);
+}
+
+.phone-camera {
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 35px;
+    height: 5px;
+    background: #080808;
+    border-radius: 10px;
+    z-index: 5;
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    background: white;
+    overflow: hidden;
+    border-radius: 19px;
+}
+
+.phone-screen iframe {
+    width: 390px;
+    height: 844px;
+    border: none;
+    transform: scale(0.36);
+    transform-origin: top left;
+    pointer-events: none;
+}
+
+.phone-button {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 3px;
+    background: #555;
+    border-radius: 10px;
+}
+
+
+/* ==============================
+   ORANGE DECORATIONS
+============================== */
+
+.decoration {
+    position: absolute;
+    width: 5px;
+    height: 35px;
+    background: var(--orange);
+    border-radius: 10px;
+    z-index: 5;
+}
+
+.decoration-one {
+    top: 80px;
+    right: 8%;
+    transform: rotate(28deg);
+}
+
+.decoration-two {
+    top: 105px;
+    right: 5%;
+    height: 25px;
+    transform: rotate(50deg);
+}
+
+.decoration-three {
+    top: 130px;
+    right: 3%;
+    height: 23px;
+    transform: rotate(75deg);
+}
+
+
+/* ==============================
+   RESPONSIVE: TABLET
+============================== */
+
+@media (max-width: 1100px) {
+
+    .project {
+        grid-template-columns: 1fr;
+        padding: 55px 5%;
+        gap: 35px;
+    }
+
+    .project-info {
+        max-width: 650px;
+        padding-right: 0;
+    }
+
+    .project-visual {
+        height: 550px;
+        max-width: 850px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .laptop {
+        width: 82%;
+        left: 4%;
+    }
+
+    .phone {
+        right: 1%;
+    }
+
+    .circle-one {
+        right: 10%;
+    }
+}
+
+
+/* ==============================
+   RESPONSIVE: MOBILE
+============================== */
+
+@media (max-width: 600px) {
+
+    .project {
+        padding: 38px 22px 50px;
+        gap: 20px;
+    }
+
+    .project-label {
+        font-size: 11px;
+        margin-bottom: 20px;
+    }
+
+    .project-info h1 {
+        font-size: clamp(39px, 11vw, 52px);
+        letter-spacing: -2.5px;
+    }
+
+    .project-info h2 {
+        font-size: 23px;
+        margin-bottom: 17px;
+    }
+
+    .description {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .project-links {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .link-card {
+        padding: 9px;
+        gap: 7px;
+        min-height: 60px;
+    }
+
+    .link-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+    }
+
+    .link-text strong {
+        font-size: 10px;
+    }
+
+    .link-text small {
+        font-size: 9px;
+    }
+
+    .arrow {
+        font-size: 15px;
+    }
+
+    .technology-list {
+        gap: 7px;
+    }
+
+    .technology-list span {
+        font-size: 11px;
+        padding: 7px 12px;
+    }
+
+    .project-visual {
+        height: 320px;
+        margin-top: 5px;
+    }
+
+    .circle-one {
+        width: 300px;
+        height: 300px;
+        right: 0;
+        top: 5px;
+    }
+
+    .circle-two {
+        width: 55px;
+        height: 55px;
+        left: 5%;
+    }
+
+    .laptop {
+        width: 88%;
+        top: 35px;
+        left: 0;
+    }
+
+    .laptop-screen {
+        height: 205px;
+        border-width: 5px;
+        border-bottom-width: 7px;
+        border-radius: 12px 12px 5px 5px;
+        padding: 8px 6px 5px;
+    }
+
+    .laptop-base {
+        height: 12px;
+    }
+
+    .phone {
+        width: 90px;
+        height: 195px;
+        right: -2%;
+        bottom: 8px;
+        border-width: 4px;
+        border-radius: 18px;
+        padding: 6px 3px;
+    }
+
+    .phone-screen {
+        border-radius: 12px;
+    }
+
+    .phone-screen iframe {
+        transform: scale(0.205);
+    }
+
+    .phone-camera {
+        width: 22px;
+        height: 3px;
+    }
+
+    .phone-button {
+        width: 18px;
+        height: 2px;
+        bottom: 3px;
+    }
+
+    .decoration-one {
+        right: 7%;
+        top: 20px;
+    }
+
+    .decoration-two {
+        right: 3%;
+        top: 43px;
+    }
+
+    .decoration-three {
+        right: 0;
+        top: 65px;
+    }
+}
+
+
+/* ==============================
+   SMALL MOBILE
+============================== */
+
+@media (max-width: 380px) {
+
+    .project {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .project-links {
+        grid-template-columns: 1fr;
+    }
+
+    .link-card {
+        min-height: 55px;
+    }
+
+    .project-visual {
+        height: 270px;
+    }
+
+    .laptop-screen {
+        height: 175px;
+    }
+
+    .phone {
+        width: 78px;
+        height: 170px;
+    }
+
+    .phone-screen iframe {
+        transform: scale(0.18);
+    }
+}
+/* GitHub button */
+
+.github-card {
+    background: #F0EFED;
+}
+
+.github-icon {
+    background: #111111;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 800;
+}
